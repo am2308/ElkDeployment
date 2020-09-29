@@ -1,6 +1,16 @@
 pipeline {
   agent any 
   stages {
+    stage('Geting controller ip and creating host file') {
+      steps {
+        sh """
+        cd /root/ElkDeploy/${params.env}/${params.version}
+        chmod 755 GetControllerIp.py
+        python GetControllerIp.py ${params.Region}
+        mv -f groups hosts/groups
+        """
+      }
+    }
     stage('Deploy ELK stack in kubernetes') {
       steps {
         sh """
