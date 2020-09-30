@@ -34,32 +34,31 @@ $ ansible-playbook deployment.yaml
 deployment.yaml internally deploying/creating statefulsets, configmaps, deployments and services using kubectl command.
 
 ## Kubectl commands used
-```
-$ kubectl apply -f elasticsearch.yaml
+
 This command will create statefulsets app along with service of type ClusterIp
 ```
-
+$ kubectl apply -f elasticsearch.yaml
 ```
-$ kubectl apply -f filebeatConfig.yaml
 This command will create configmaps for filebeat
 ```
+$ kubectl apply -f filebeatConfig.yaml
 ```
-$ kubectl apply -f filebeat.yaml
 This command will create filebeat deployment
 ```
-
+$ kubectl apply -f filebeat.yaml
 ```
-$ kubectl apply -f logstashConfig.yaml
 This command will create configmaps for logstash
 ```
-
+$ kubectl apply -f logstashConfig.yaml
 ```
-$ kubectl apply -f logstash.yaml
+
 This command will create deployment for logstash
 ```
+$ kubectl apply -f logstash.yaml
+```
 
+This command will deployment and service of type NodePort for kibana
 ```
 $ kubectl apply -f kibana.yaml
-This command will deployment and service of type NodePort for kibana
 ```
 
