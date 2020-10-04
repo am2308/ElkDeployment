@@ -28,6 +28,6 @@ data:
     }
     output {
         elasticsearch {
-            hosts => [ "elasticsearch:9200" ]
+            hosts => [ "18.210.29.239:9200" ]
         }
     }
