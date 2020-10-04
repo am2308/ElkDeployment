@@ -30,6 +30,12 @@
         src: "{{ playbook_dir }}/ELKFiles/kibana.yaml"
         dest: "{{ playbook_dir }}/roles/kibana/files"
 
+- hosts: worker0
+  gather_facts: true
+  become: true
+  roles:
+    - init
+
 - hosts: controller
   gather_facts: true
   become: true
