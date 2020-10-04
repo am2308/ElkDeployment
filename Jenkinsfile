@@ -24,11 +24,12 @@ pipeline {
       steps {
         sh """
         cd /root/ElkDeploy/${params.env}/${params.version}
-        sleep 60s
+        sleep 10s
         kubectl get pods --insecure-skip-tls-verify -o wide
         kubectl get services --insecure-skip-tls-verify -o wide
         kubectl get configmaps --insecure-skip-tls-verify -o wide
         kubectl get deploy --insecure-skip-tls-verify
+        kubectl get daemonsets --insecure-skip-tls-verify -o wide
         """
       }
     }
