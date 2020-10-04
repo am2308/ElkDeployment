@@ -30,6 +30,13 @@
         src: "{{ playbook_dir }}/ELKFiles/kibana.yaml"
         dest: "{{ playbook_dir }}/roles/kibana/files"
 
+- hosts: controller
+  gather_facts: true
+  become: true
+  tasks:
+    - name: Set default namespace
+      shell: "kubectl config use-context dev"
+    
 - hosts: worker
   gather_facts: true
   become: true
